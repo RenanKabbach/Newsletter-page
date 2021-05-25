@@ -16,10 +16,10 @@
           Assine nossa newsletter e fique ligada em nossas novidades, dicas e
           promoções!
         </p>
-        <form>
-          <input placeholder="Insira seu nome" />
-          <input placeholder="Insira seu e-mail" />
-          <button>ASSINAR</button>
+        <form name="formuser">
+          <input placeholder="Insira seu nome" type="text" name="nome" />
+          <input placeholder="Insira seu e-mail" type="text" name="email" />
+          <button onclick="return validar()">ASSINAR</button>
         </form>
       </div>
 
@@ -28,4 +28,23 @@
       </div>
     </main>
   </body>
+
+  <script type="text/javascript">
+    function validar() {
+      var nome = formuser.nome.value;
+      var email = formuser.email.value;
+
+      if (nome == "") {
+        alert("Preencha um nome por favor.");
+        formuser.nome.focus();
+        return false;
+      }
+
+      if (email == "" || email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+        alert("Preencha um email válido por favor.");
+        formuser.email.focus();
+        return false;
+      }
+    }
+  </script>
 </html>
